@@ -1,0 +1,1 @@
+module.exports = "It works from content1.js.<br />";

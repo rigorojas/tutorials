@@ -1,0 +1,1 @@
+module.exports = "<hr>It works from content2.js.";

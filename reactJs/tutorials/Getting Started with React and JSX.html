@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)http://www.sitepoint.com/getting-started-react-jsx/ -->
+<html class=" js no-touch svg inlinesvg svgclippaths no-ie8compat" lang="en" style=""><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="http://dab1nmslvvntp.cloudfront.net/" ref="dns-prefetch">
+    <link href="http://d2sis3lil8ndrq.cloudfront.net/" ref="dns-prefetch">
+    <link href="http://sitepoint.com/" ref="dns-prefetch">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:image" content="http://www.sitepoint.com/wp-content/themes/sitepoint/assets/images/icon.javascript.png">
+        
+    <link rel="shortcut icon" href="http://www.sitepoint.com/favicon.ico">
+
+    <link rel="apple-touch-icon-precomposed" href="http://www.sitepoint.com/wp-content/themes/sitepoint/assets/images/apple-touch-icon-57x57-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://www.sitepoint.com/wp-content/themes/sitepoint/assets/images/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://www.sitepoint.com/wp-content/themes/sitepoint/assets/images/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://www.sitepoint.com/wp-content/themes/sitepoint/assets/images/apple-touch-icon-144x144-precomposed.png">
+
+        <link href="https://plus.google.com/+sitepoint" rel="publisher">
+        <meta property="twitter:account_id" content="15743570">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+    <script async="" type="text/javascript" src="./Getting Started with React and JSX_files/gpt.js"></script><script async="" src="./Getting Started with React and JSX_files/analytics.js"></script><script type="text/javascript">
+    function r(f){/in/.test(document.readyState)?setTimeout(r,9,f):f()}
+    </script>
+
+    
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30131-1', '.sitepoint.com');
+
+  ga('set', 'dimension1', 'post');
+ga('set', 'dimension2', 'javascript');
+ga('set', 'dimension3', 'JavaScript');
+ga('set', 'dimension4', '2014-11-26');
+ga('set', 'dimension5', 'Sandeep Panda');
+
+  ga('set', 'contentGroup5', 'javascript');  //Integration with Kaizen
+  try { pbcd("activateUniversalAnalytic"); } catch(e) {}
+
+  // Cross Domain Tracking to Learnable
+  ga('require', 'linker');
+  // command, domains, useAnchor, enableForms
+  ga('linker:autoLink', ['learnable.com'], false, true);
+
+  ga('send', 'pageview');
+</script>
+    <script type="text/javascript">
+      var googletag = googletag || {};
+      googletag.cmd = googletag.cmd || [];
+      (function() {
+      var gads = document.createElement('script');
+      gads.async = true;
+      gads.type = 'text/javascript';
+      var useSSL = 'https:' == document.location.protocol;
+      gads.src = (useSSL ? 'https:' : 'http:') + '//www.googletagservices.com/tag/js/gpt.js';
+      var node = document.getElementsByTagName('script')[0];
+      node.parentNode.insertBefore(gads, node);
+      })();
+    </script>
+    <script type="text/javascript">(function(){!function(a,b,c,d,e){return d="http"+("https:"===c?"s":"")+":"+d,a.planBCDObject=e,a[e]||(a[e]=function(){var b;return((b=a[e]).q||(b.q=[])).push(arguments),a[e].l=1*new Date}),b.write(unescape('%3Cscript type="text/javascript" src="'+d+'"%3E%3C/script%3E'))}(window,document,document.location.protocol,"//dwkjexg5kaiww.cloudfront.net/planbcd/9b52cd/1814.js","pbcd")}).call(this);</script><script type="text/javascript" src="./Getting Started with React and JSX_files/1814.js"></script>
+    
+<!-- This site is optimized with the Yoast WordPress SEO plugin v1.4.24 - http://yoast.com/wordpress/seo/ -->
+<title>Getting Started with React and JSX</title>
+<meta name="description" content="This article provides a primer on the React view system and JSX templating language.">
+<link rel="canonical" href="./Getting Started with React and JSX_files/Getting Started with React and JSX.html">
+<link rel="author" href="https://plus.google.com/+SandeepPanda">
+<link rel="publisher" href="https://plus.google.com/+sitepoint/">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Getting Started with React and JSX">
+<meta property="og:description" content="This article provides a primer on the React view system and JSX templating language.">
+<meta property="og:url" content="http://www.sitepoint.com/getting-started-react-jsx/">
+<meta property="og:site_name" content="SitePoint">
+<meta property="article:publisher" content="https://www.facebook.com/sitepoint">
+<meta property="article:author" content="sandeep.panda92">
+<meta property="article:tag" content="ColinI">
+<meta property="article:tag" content="JSX">
+<meta property="article:tag" content="React">
+<meta property="article:tag" content="templating language">
+<meta property="article:section" content="JavaScript">
+<meta property="article:section" content="Tools and Libraries">
+<meta property="article:published_time" content="2014-11-26T12:00:56+00:00">
+<meta property="article:modified_time" content="2014-12-02T14:39:39+00:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@sitepointdotcom">
+<meta name="twitter:domain" content="SitePoint">
+<meta name="twitter:creator" content="@Sandeepg33k">
+<!-- / Yoast WordPress SEO plugin. -->
+
+<link rel="alternate" type="application/rss+xml" title="SitePoint » Getting Started with React and JSX Comments Feed" href="http://www.sitepoint.com/getting-started-react-jsx/feed/">
+<link rel="stylesheet" id="discourse_comments-css" href="./Getting Started with React and JSX_files/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="sitepoint-fonts-css" href="./Getting Started with React and JSX_files/css" type="text/css" media="all">
+<link rel="stylesheet" id="sitepoint-styles-css" href="./Getting Started with React and JSX_files/styles-6ec8831ce36f592f78bdaa2164742de0.css" type="text/css" media="all">
+<script type="text/javascript" src="./Getting Started with React and JSX_files/scripts-head-e4a2be27db699092d2993e42901cedf6.js"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.sitepoint.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.sitepoint.com/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 4.0">
+<link rel="shortlink" href="http://www.sitepoint.com/?p=95146">
+
+<!--Plugin WP Missed Schedule 2013.1231.2013 Active - Tag 6707293c0218e2d8b7aa38d418ffa608-->
+
+<!-- This site is patched which an important unfixed problem since WordPress 2.5+ to 3.9+ -->
+
+<!-- wp-parsely Plugin Version 1.5 -->
+<meta name="wp-parsely_version" id="wp-parsely_version" content="1.5">
+<meta name="parsely-page" id="parsely-page" content="{&quot;title&quot;:&quot;Getting Started with React and JSX&quot;,&quot;link&quot;:&quot;http:\/\/www.sitepoint.com\/getting-started-react-jsx\/&quot;,&quot;image_url&quot;:&quot;&quot;,&quot;type&quot;:&quot;post&quot;,&quot;post_id&quot;:&quot;95146&quot;,&quot;pub_date&quot;:&quot;2014-11-26T20:00:56Z&quot;,&quot;section&quot;:&quot;JavaScript&quot;,&quot;author&quot;:&quot;Sandeep Panda&quot;,&quot;tags&quot;:[&quot;colini&quot;,&quot;jsx&quot;,&quot;react&quot;,&quot;templating language&quot;,&quot;javascript\/tools and libraries&quot;]}">
+<script type="text/javascript">
+    googletag.cmd.push(function() {
+		googletag.defineSlot("/7448792/SP2013_Articles_300x250_1", [300, 250], "div-gpt-ad-1392428092543-0").addService(googletag.pubads());
+		googletag.defineSlot("/7448792/SP2013_Articles_728x90_1", [728, 90], "div-gpt-ad-article-header").addService(googletag.pubads());
+		googletag.defineSlot("/7448792/SP2013_Articles_300x250_4", [300, 250], "div-gpt-ad-1392428092543-3").addService(googletag.pubads());
+		googletag.defineSlot("/7448792/SP2013_Articles_300x600_1", [300, 600], "div-gpt-ad-1392428092543-4").addService(googletag.pubads());
+		googletag.defineSlot("/7448792/Sitepoint_125x125_2", [125, 125], "div-gpt-ad-1400782268851-0").addService(googletag.pubads());
+		googletag.defineSlot("/7448792/Sitepoint_125x125_3", [125, 125], "div-gpt-ad-1400782991292-0").addService(googletag.pubads());
+		googletag.defineSlot("/7448792/Sitepoint_125x125_4", [125, 125], "div-gpt-ad-1400783440189-0").addService(googletag.pubads());
+		googletag.defineSlot("/7448792/Sitepoint_125x125_5", [125, 125], "div-gpt-ad-1400783664460-0").addService(googletag.pubads());
+		googletag.defineSlot("/7448792/Sitepoint_125x125_6", [125, 125], "div-gpt-ad-1400783847643-0").addService(googletag.pubads());
+		googletag.defineSlot("/7448792/Sitepoint_125x125", [125, 125], "div-gpt-ad-1400800012700-0").addService(googletag.pubads());
+		googletag.pubads().setTargeting("channel", "javascript");
+		googletag.pubads().setTargeting("post_id", "95146");
+		googletag.pubads().setTargeting("OpenX",["true", "false"]);
+		googletag.pubads().setTargeting("Tribal",["true", "false"]);
+		googletag.pubads().enableSingleRequest();
+        googletag.pubads().collapseEmptyDivs();
+        googletag.enableServices();
+    });
+</script>
+        <link rel="stylesheet" type="text/css" href="./Getting Started with React and JSX_files/shCore.css"><link rel="stylesheet" type="text/css" href="./Getting Started with React and JSX_files/shThemeDefault.css"><style type="text/css" id="syntaxhighlighteranchor"></style>
+    <!--[if lt IE 9]>
+      <script src="/wp-content/themes/sitepoint/assets/javascripts/vendor/respond.custom.min.js"></script>
+    <![endif]-->
+  <script type="text/javascript" async="" src="./Getting Started with React and JSX_files/embed.js"></script><style type="text/css"></style><script async="" src="./Getting Started with React and JSX_files/count-data.js"></script></head>
+
+  <body>
+
+    <header class="main-header" role="banner">
+      <nav class="top-bar" role="navigation">
+        <ul class="title-area">
+          <li class="name">
+            <div class="logo">
+              <a class="logomark" href="http://www.sitepoint.com/" tabindex="1">
+                <img src="./Getting Started with React and JSX_files/sitepoint.svg" alt="SitePoint">
+              </a>
+            </div>
+          </li>
+          <li class="toggle-topbar menu-icon">
+            <a href="http://www.sitepoint.com/getting-started-react-jsx/#"><span>Menu</span></a>
+          </li>
+        </ul>
+
+        
+      <section class="top-bar-section">
+          <ul class="right">
+            <li class="has-dropdown">
+              <a href="http://www.sitepoint.com/getting-started-react-jsx/#" tabindex="-1">Topics</a>
+              <ul class="dropdown"><li class="title back js-generated"><h5><a href="http://www.sitepoint.com/getting-started-react-jsx/#">« Back</a></h5></li>
+                <li>
+                  <a class="category-html-css menuitem" href="http://www.sitepoint.com/html-css/">HTML &amp; CSS</a>
+                </li>
+                <li>
+                  <a class="category-javascript menuitem" href="http://www.sitepoint.com/javascript/">JS</a>
+                </li>
+                <li>
+                  <a class="category-php menuitem" href="http://www.sitepoint.com/php/">PHP</a>
+                </li>
+                <li>
+                  <a class="category-ruby menuitem" href="http://www.sitepoint.com/ruby/">Ruby</a>
+                </li>
+                <li>
+                  <a class="category-mobile menuitem" href="http://www.sitepoint.com/mobile/">Mobile</a>
+                </li>
+                <li>
+                  <a class="category-design-ux menuitem" href="http://www.sitepoint.com/design-ux/">Design &amp; UX</a>
+                </li>
+                <li>
+                  <a class="category-business-marketing menuitem" href="http://www.sitepoint.com/business-marketing/">Business</a>
+                </li>
+                <li>
+                  <a class="category-wordpress menuitem" href="http://www.sitepoint.com/wordpress/">WordPress</a>
+                </li>
+                <li>
+                  <a class="category-design menuitem" href="http://www.sitepoint.com/web-foundations/">Web Foundations</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="http://www.sitepoint.com/store" tabindex="2">Books</a>
+            </li>
+            <li>
+              <a href="https://learnable.com/topics/all/course?utm_source=sitepoint&utm_medium=link&utm_content=top-nav" target="_blank" tabindex="3">Courses</a>
+            </li>
+<!--             <li>
+              <a href="/store/" tabindex="2">Store</a>
+            </li>
+ -->            <li>
+              <a href="http://community.sitepoint.com/" tabindex="4">Forums</a>
+            </li>
+            <li>
+              <a href="http://www.sitepoint.com/newsletter" tabindex="5">Newsletters</a>
+            </li>
+            <li class="top-bar_search">
+              <form method="get" action="http://www.sitepoint.com/">
+                <input autocomplete="off" class="searchquery" id="search-box" name="s" placeholder="Search…" type="text" tabindex="4">
+                <button tabindex="-1"></button>
+              </form>
+            </li>
+          </ul>
+        </section></nav>
+    </header>
+<div class="awesome-bar awesome-bar--default" data-campaign="newrelic" style="background:#038D98;">
+ <a class="awesome-bar_container" target="_blank" href="http://newrelic.com/sp/datanerd?utm_source=SITE&utm_medium=text_ad&utm_content=LookGood&utm_campaign=DataNerd&mpc=TA-SITE-generic-EN-Signup-DataNerd-LookGood" id="bar-new-relic-link-1">
+   <img class="awesome-bar_brand" src="./Getting Started with React and JSX_files/NewRelic-logo-w.png" alt="New Relic" style="height:22px;">
+   <span class="awesome-bar_message" style="color:#fff;" id="bar-new-relic-message-1">When your software looks good, you do too. Deploy New Relic and see for yourself.</span>
+   <span class="button small radius awesome-bar_action" style="background:#78cbd1;" id="bar-new-relic-button-1">Free t-shirt, please!</span>
+ </a>
+ <span class="awesome-bar_close">x</span>
+</div>
+<script>
+(function(){
+var rand = Math.random();
+var link  = document.getElementById("bar-new-relic-link-1");
+var message  = document.getElementById("bar-new-relic-message-1");
+var button  = document.getElementById("bar-new-relic-button-1");
+if (rand < 0.5) {
+link.href = "http://newrelic.com/sp/datanerd?utm_source=SITE&utm_medium=text_ad&utm_content=nerdtiffic&utm_campaign=datanerd&mpc=TA-SITE-generic-EN-Signup-datanerd-nerdtiffic"
+message.innerHTML = "Make your software run better, and look better (with a free nerdiffic t-shirt!) in the process.";
+button.innerHTML = "Yes, please";
+} else {
+link.href = "http://newrelic.com/sp/datanerd?utm_source=SITE&utm_medium=text_ad&utm_content=LookGood&utm_campaign=DataNerd&mpc=TA-SITE-generic-EN-Signup-DataNerd-LookGood";
+message.innerHTML = "When your software looks good, you do too. Deploy New Relic and see for yourself.";
+button.innerHTML = "Free t-shirt, please!";
+}
+})()
+</script><div class="awesome-bar awesome-bar--alternative js show" data-campaign="newrelic" style="background:#038D98;">
+ <a class="awesome-bar_container" target="_blank" href="http://newrelic.com/sp/datanerd?utm_source=SITE&utm_medium=text_ad&utm_content=Sweat&utm_campaign=DataNerd&mpc=TA-SITE-generic-EN-Signup-DataNerd-Sweat" id="bar-new-relic-link-2">
+   <img class="awesome-bar_brand" src="./Getting Started with React and JSX_files/NewRelic-logo-w.png" alt="New Relic" style="height:22px;">
+   <span class="awesome-bar_message" style="color:#fff;" id="bar-new-relic-message-2">Improve your app and get a free t-shirt. We get it, coding is sweaty business.</span>
+   <span class="button small radius awesome-bar_action" style="background:#78cbd1;" id="bar-new-relic-button-2">Show me how</span>
+ </a>
+ <span class="awesome-bar_close">x</span>
+</div>
+<script>
+(function(){
+var rand = Math.random();
+var link  = document.getElementById("bar-new-relic-link-2");
+var message  = document.getElementById("bar-new-relic-message-2");
+var button  = document.getElementById("bar-new-relic-button-2");
+if (rand < 0.5) {
+link.href = "http://newrelic.com/sp/datanerd?utm_source=SITE&utm_medium=text_ad&utm_content=Sweat&utm_campaign=DataNerd&mpc=TA-SITE-generic-EN-Signup-DataNerd-Sweat";
+message.innerHTML = "Improve your app and get a free t-shirt. We get it, coding is sweaty business.";
+button.innerHTML = "Show me how";
+} else {
+link.href = "http://newrelic.com/sp/datanerd?utm_source=SITE&utm_medium=text_ad&utm_content=swlove&utm_campaign=datanerd&mpc=TA-SITE-generic-EN-Signup-datanerd-swlove"
+message.innerHTML = "Give your software the love it needs. And we'll give you the new t-shirt you need.";
+button.innerHTML = "Create free account";
+}
+})()
+</script><main role="main" class="page page--primary category-javascript">
+
+  <header role="banner" class="page_banner page_banner--category">
+    <h2 class="page_banner_title">
+        <a href="http://www.sitepoint.com/javascript/" class="page_banner_title_category">
+    <svg class="Logo" width="90px" height="90px" viewBox="0 0 90 90">
+  <g fill-rule="evenodd">
+    <path class="Logo_fg" d="M40.6243149,49.7226891 L40.6243149,27.4855275 L33.130307,27.4855275 L33.130307,49.3828198 C33.130307,53.3155929 31.4228115,55.0149393 28.6718466,55.0149393 C26.3477556,55.0149393 24.4979688,53.7525677 22.6007517,51.6162465 L18,56.859944 C20.2766606,59.627451 23.6916515,61.9579832 28.8615683,61.9579832 C35.8812719,61.9579832 40.6243149,57.9766573 40.6243149,49.7226891 L40.6243149,49.7226891 L40.6243149,49.7226891 Z M72.0706896,51.4220355 L72.0706896,51.32493 C72.0706896,45.4014939 68.2762552,42.9253035 61.5411342,41.1288515 C55.8020523,39.6237162 54.3791394,38.8954248 54.3791394,36.6619981 L54.3791394,36.5648926 C54.3791394,34.914099 55.8494827,33.6031746 58.647878,33.6031746 C61.4462734,33.6031746 64.3395296,34.8655462 67.2802162,36.9533147 L71.0746506,31.3211951 C67.7070901,28.5536881 63.5806427,27 58.7427389,27 C51.9601875,27 47.1222837,31.0784314 47.1222837,37.2446312 L47.1222837,37.3417367 C47.1222837,44.0905696 51.4384528,45.984127 58.1261433,47.7320261 C63.6755036,49.1886088 64.8138339,50.1596639 64.8138339,52.0532213 L64.8138339,52.1503268 C64.8138339,54.1409897 63.0114776,55.3548086 60.0233605,55.3548086 C56.2289261,55.3548086 53.0985178,53.7525677 50.1104007,51.2278245 L45.7942317,56.5200747 C49.7783877,60.1615313 54.8534437,61.9579832 59.8810692,61.9579832 C67.0430641,61.9579832 72.0706896,58.1708683 72.0706896,51.4220355 L72.0706896,51.4220355 L72.0706896,51.4220355 Z"></path>
+  </g>
+</svg>
+    JavaScript  </a>
+        </h2>
+    <div class="page_banner_adspot">
+      <div class="widget maestro maestro-content-type-ad hide-for-mobile-SP" id="maestro-product-37"><!-- SP2013_Articles_728x90_1 -->
+<div id="div-gpt-ad-article-header" style="width:728px; height:90px;" class="adspot">
+    <script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-gpt-ad-article-header"); });</script>
+ </div></div>          </div>
+
+    <div class="page_banner_divider-container">
+      <hr>
+    </div>
+  </header>
+
+      <div class="page_content">
+      <article class="article" id="post-95146">
+        <header class="article_header">
+          <h1 class="article_title">Getting Started with React and JSX</h1>
+
+          
+    <div class="contributor article_contributor">
+
+          <figure class="contributor_avatar">
+      <a href="http://www.sitepoint.com/author/spanda/">
+        <img src="./Getting Started with React and JSX_files/DSC_0457-96x96.jpg" width="96" height="96" alt="Sandeep Panda" class="avatar avatar-96 wp-user-avatar wp-user-avatar-96 alignnone photo">      </a>
+    </figure>
+  
+      <div class="contributor_details">
+          <div class="contributor_name">
+    <a href="http://www.sitepoint.com/author/spanda/">Sandeep Panda</a>
+  </div>
+
+        </div>
+
+    </div>
+
+    
+          <div class="article_meta-data">
+            <p class="article_pub-date">Published <time datetime="2014-11-26" pubdate="">November 26, 2014</time></p>
+          </div>
+          <div class="article_header__buttons">
+            
+            <!-- make sure to update trackTweetsAndSubscriptions in scripts.js if the Tweet button DOM path changes in the future -->
+            <a class="button small transparent radius sp-twitter-share-button" target="_blank" href="https://twitter.com/share?text=Getting+Started+with+React+and+JSX&via=sitepointdotcom">
+              <i class="icon-twitter"></i>
+              Tweet
+            </a>
+            
+            <!-- make sure to update trackTweetsAndSubscriptions in scripts.js if the Subscribe button DOM path changes in the future -->
+            <a class="button small transparent radius subscribe-button" target="_blank" href="https://confirmsubscription.com/h/y/1FD5B523FA48AA2B">
+              <!--<i class="icon-envelope-alt"></i>-->
+              Subscribe
+            </a>
+            
+          </div>
+
+        </header>
+
+        <section class="article_body">
+
+            <p>React is an open source library for building user interfaces. It lets you create views easily while making sure your UI stays in sync with the underlying data model. This article, targeted towards beginners, covers the basics of React and JSX syntax.</p>
+<h2 id="getting-started-with-react">Getting Started with React</h2>
+<p>To get started, head over to the official React official website and download the <a href="http://facebook.github.io/react/docs/getting-started.html">React starter kit</a>. It contains all the files you need to get started.</p>
+<p>Once you have download the <code>.zip</code>, extract it to a location on your machine. You will see a directory named <code>React-&lt;version&gt;</code>. On my machine the name of the directory is <code>react-0.12.0</code>. Open it and go to the <code>build</code> directory. We are going to need the following two files:</p>
+<ol>
+<li><code>JSXTransformer.js</code> – Lets you create JavaScript objects through simple HTML.</li>
+<li><code>react.js</code> – The core React library.</li>
+</ol>
+<p>Let’s create a file named <code>index.html</code> inside the directory <code>react-&lt;version&gt;</code> and add the following snippet:</p>
+<pre class="brush: xml; title: ; notranslate" title="">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;My First React Example&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id="greeting-div"&gt;&lt;/div&gt;
+    &lt;script src="build/react.js"&gt;&lt;/script&gt;
+    &lt;script src="build/JSXTransformer.js"&gt;&lt;/script&gt;
+    &lt;script type="text/jsx"&gt;
+      var Greeting = React.createClass({
+        render: function() {
+          return (
+            &lt;p&gt;Hello, Universe&lt;/p&gt;
+          )
+        }
+      });
+      React.render(
+        &lt;Greeting/&gt;,
+        document.getElementById('greeting-div')
+      );
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p>The above snippet prints <code>Hello, Universe</code> on the UI. You should note the following points:</p>
+<ol>
+<li>React follows component oriented development. The general idea is to break your whole UI into a set of components. In our case we have just one component named <code>Greeting</code>. In React, you create a component by calling <code>React.createClass()</code>. Every component has a <code>render()</code> method which returns markup to render. In the above snippet we simply returned <code>&lt;p&gt;Hello, Universe&lt;/p&gt;</code>, which is then displayed in the view. </li>
+<li>A component doesn’t do anything until it’s rendered. To render a component you call <code>React.render()</code> with the component to render as the first argument. The second argument is the HTML element where you would like to render your component. In our case we render our <code>Greeting</code> component into <code>div#greeting-div</code> .</li>
+<li>You might be wondering what <code>&lt;Greeting/&gt;</code> really is? This syntax is known as JSX (JavaScript XML) which lets you build DOM nodes with HTML-like syntax. However, JSX is completely optional and you don’t need it in order to use React. But it has a lot of nice features and there is no reason not to take advantage of it.</li>
+<li>Since the browser doesn’t understand JSX natively, we need to transform it to JavaScript first. This is handled by including the following script:</li>
+</ol>
+<pre class="brush: xml; title: ; notranslate" title="">&lt;script src="build/JSXTransformer.js"&gt;&lt;/script&gt;
+</pre>
+<p>This script looks for JSX code in <code>&lt;script type="text/jsx"&gt;&lt;/script&gt;</code> tags and transforms them into JavaScript on the fly. Transforming JSX in the browser works quite well during development. However, you need to pre-compile your JSX code into JS before deploying into production so that your app renders faster. We will see how to do that later on.</p>
+<p>Now you can spin up a server and see the message <code>Hello, Universe</code> on the UI. Note, if you are on Mac, you can start a server by running the following command from the project’s root directory:</p>
+<pre class="brush: plain; title: ; notranslate" title="">python -m SimpleHTTPServer 8000
+</pre>
+<h2 id="introducing-props">Introducing <code>props</code></h2>
+<p>React relies on unidirectional data flow. This means that data flow occurs in only one direction i.e. from parent to child via properties. These properties are passed to child components via attributes in JSX. Inside the component you can access the passed properties via the <code>props</code> object. When the properties change, React makes sure to re-render your component so that your UI is up-to-date with the data model. So, let’s modify the previous snippet to show a random message every two seconds. For the sake of brevity only the <code>script</code> portion is shown.</p>
+<pre class="brush: xml; title: ; notranslate" title="">&lt;script type="text/jsx"&gt;
+  var Greeting = React.createClass({
+    render: function() {
+      return (
+        &lt;p&gt;{this.props.message}&lt;/p&gt;
+      )
+    }
+  });
+  setInterval(function() {
+    var messages = ['Hello, World', 'Hello, Planet', 'Hello, Universe']
+    var randomMessage = messages[Math.floor((Math.random() * 3))] 
+
+    React.render(
+      &lt;Greeting message={randomMessage}/&gt;,
+      document.getElementById('greeting-div')
+    )
+  }, 2000); 
+&lt;/script&gt;
+</pre>
+<p>The above code chooses a random message from an array and re-renders our component every two seconds. The chosen message is passed as a property called <code>message</code>. You also need to use pair of curly braces <code>{}</code> to pass the variable. Now inside the <code>Greeting</code> component, we access the passed <code>message</code> via <code>this.props.message</code>.</p>
+<p>If you run the above snippet, it will display a random message every two seconds (assuming a different message is chosen each time).</p>
+<p>Just note that the passed <code>props</code> are immutable types. You just pass various properties to a component via <code>props</code>. Inside the component you never write to <code>this.props</code>. This keeps data flow unidirectional and it’s easier to understand how the data change affects the whole application.</p>
+<h2 id="introducing-state-and-events">Introducing <code>state</code> and <code>events</code></h2>
+<p>In React each component is well encapsulated and maintains its own state (if stateful). A stateful component can store a value in its state and pass it to its child components via <code>props</code>. This ensures that whenever a component’s state changes, the <code>props</code> also change. As a result the child components that depend on these <code>props</code> re-render themselves automatically. </p>
+<p>To reinforce this concept let’s modify our previous snippet so that a random message is displayed when a button is clicked. For this we will have two components:</p>
+<ol>
+<li><code>RandomMessage</code>: This is the parent component which maintains a randomly chosen message in its state.</li>
+<li><code>MessageView</code>: This is a child component which deals with displaying the randomly selected message. </li>
+</ol>
+<p>Let’s take a look at each component in detail.</p>
+<p><strong>RandomMessage</strong></p>
+<pre class="brush: jscript; title: ; notranslate" title="">var RandomMessage = React.createClass({
+  getInitialState: function() {
+    return {message: 'Hello, Universe'};
+  },
+  _onClick: function() {
+    var messages = ['Hello, World', 'Hello, Planet', 'Hello, Universe'];
+    var randomMessage = messages[Math.floor((Math.random() * 3))];
+
+    this.setState({message: randomMessage});
+  },
+  render: function() {
+    return (
+      &lt;div&gt;
+        &lt;MessageView message={this.state.message}/&gt;
+        &lt;p&gt;&lt;input type="button" onClick={this._onClick} value="Change Message"/&gt;&lt;/p&gt;
+      &lt;/div&gt;
+    )
+  }
+});
+</pre>
+<p>Our component <code>RandomMessage</code> maintains a <code>message</code> in its state. Every React component has a <code>getInitialState()</code> function which sets the initial state of the component. In our case we initialize our state <code>message</code> with the value <code>Hello, Universe</code>.</p>
+<p>Next, we need to display a button which, when clicked, updates the state <code>message</code> with a new value. The following is the markup returned by our component:</p>
+<pre class="brush: xml; title: ; notranslate" title="">&lt;div&gt;
+  &lt;MessageView message={this.state.message}/&gt;
+  &lt;p&gt;&lt;input type="button" onClick={this._onClick} value="Change Message"/&gt;&lt;/p&gt;
+&lt;/div&gt;
+</pre>
+<p>As you can see, this component renders another component, <code>MessageView</code>, and an input button. Do note that the component’s state <code>message</code> is passed to the child component via a property. Our component also handles <code>click</code> event on the button by attaching an event listener, <code>this._onClick</code>. Pay attention to camel case in <code>onClick</code>. In HTML the event names are written in lowercase i.e. <code>onclick</code>. But, in JSX you need to use camel case for event names.</p>
+<p>Our <code>click</code> event handler chooses a random message and updates the component’s state by calling:</p>
+<pre class="brush: jscript; title: ; notranslate" title="">this.setState({message:randomMessage})
+</pre>
+<p><code>setState()</code> is a way to inform React about a data change. This method updates the current state of the component and re-renders it. As a result the passed <code>props</code> are also recomputed and the child components which depend on these props also re-render themselves.</p>
+<p><strong>MessageView</strong></p>
+<pre class="brush: jscript; title: ; notranslate" title="">var MessageView = React.createClass({
+  render: function() {
+    return (
+      &lt;p&gt;{this.props.message}&lt;/p&gt;
+    )
+  }
+});
+</pre>
+<p>This component just displays the passed property <code>message</code> on the UI. You should note that this is a stateless component and is rendered by the stateful component <code>RandomMessage</code>.</p>
+<p>Now that we have created the required components, it’s time to render the top level component <code>RandomMessage</code>. This is done as following:</p>
+<pre class="brush: jscript; title: ; notranslate" title="">React.render(
+  &lt;RandomMessage /&gt;,
+  document.getElementById('greeting-div')
+);
+</pre>
+<p>Thats’s it! Each time you click on the button you will see a different message.</p>
+<h2 id="keeping-jsx-separately">Keeping JSX Separately</h2>
+<p>Until now we have been writing JSX inside <code>script</code> tags in HTML. To keep your app structured you should keep each component in its own <code>.jsx</code> file. So, we can put the above snippet in a file called <code>random-message.jsx</code> and include it in HTML as shown below:</p>
+<pre class="brush: xml; title: ; notranslate" title="">&lt;script type="text/jsx" src="random-message.jsx"&gt;&lt;/script&gt;
+</pre>
+<p>So, the new HTML markup is:</p>
+<pre class="brush: xml; title: ; notranslate" title="">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;My First React Example&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id="greeting-div"&gt;&lt;/div&gt;
+    &lt;script src="build/react.js"&gt;&lt;/script&gt;
+    &lt;script src="build/JSXTransformer.js"&gt;&lt;/script&gt;
+    &lt;script type="text/jsx" src="src/random-message.jsx"&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<h2 id="precompiling-jsx">Precompiling JSX</h2>
+<p>As I mentioned earlier, it’s a good practice to precompile JSX for production usage. To do so you can download a node module called <code>react-tools</code> using the command <code>npm install react-tools -g</code>. This tool can continuously watch your JSX files for changes and compile them into JavaScript. This can be done by running the following command:</p>
+<pre class="brush: plain; title: ; notranslate" title="">jsx   --watch   src/    out/
+</pre>
+<p>If you do this you don’t need to include <code>JSXTransformer.js</code> in your HTML anymore. Rather you should directly include the compiled JavaScript in your markup.</p>
+<h2 id="a-note-on-virtual-dom">A Note on Virtual DOM</h2>
+<p>React is very fast because of a technique called virtual DOM. It maintains a fast in-memory representation of the DOM and never directly talks to the real DOM. A component’s <code>render()</code> function tells React how the DOM should look like at a given time. You have seen me returning React components and HTML elements from components’ <code>render()</code> function. But that doesn’t produce a real DOM! Rather it’s just a description of the DOM. React computes the diff between this description and the in-memory DOM representation to compute the fastest way to update the browser.</p>
+<h2 id="further-learning">Further Learning</h2>
+<p>This article provided an overview of React and JSX. Apart from being a rich view technology, React has many other benefits. I wrote an article on my blog highlighting the useful features of React. You can check it out <a href="http://www.htmlxprs.com/post/17/10-reasons-to-use-react-in-your-next-project">here</a>.</p>
+<p>If you want more information on JSX you can check out <a href="http://facebook.github.io/react/docs/jsx-in-depth.html">this</a> official resource. If you want to go ahead and learn something advanced you can read my previous tutorial <a href="http://www.sitepoint.com/creating-note-taking-app-react-flux/">Creating a Note Taking App with React and Flux</a>.</p>
+<p>Thanks for reading. If you have any questions do let me know in comments.</p>
+
+        </section>
+
+        <div class="article__author-bios">
+          
+    <div class="contributor contributor--large">
+
+          <figure class="contributor_avatar">
+      <a href="http://www.sitepoint.com/author/spanda/">
+        <img src="./Getting Started with React and JSX_files/DSC_0457-96x96.jpg" width="96" height="96" alt="Sandeep Panda" class="avatar avatar-96 wp-user-avatar wp-user-avatar-96 alignnone photo">      </a>
+    </figure>
+  
+      <div class="contributor_details">
+
+          <div class="contributor_name">
+    <a href="http://www.sitepoint.com/author/spanda/">Sandeep Panda</a>
+  </div>
+
+  
+        <p class="contributor_longdesc">Sandeep is the Co-Founder of <a href="https://devmag.io/">devmag.io</a>. He loves startups and web technologies.</p>
+
+        <ul class="contributor_social">
+          <li><a href="https://twitter.com/Sandeepg33k" target="_blank"><i class="icon-twitter"></i></a></li><li><a href="http://facebook.com/sandeep.panda92" target="_blank"><i class="icon-facebook"></i></a></li><li><a href="http://www.linkedin.com/pub/sandeep-panda/45/768/b23" target="_blank"><i class="icon-linkedin"></i></a></li><li><a href="https://plus.google.com/+SandeepPanda" target="_blank"><i class="icon-google-plus"></i></a></li>        </ul>
+      </div>
+    </div>
+
+          </div>
+
+                  <div class="related-content">
+            <h2>You might also like:</h2>
+            <ul class="article-list article-list--related">
+              <li class="article-list_item  tile post-tile">
+  <article class="article article--micro article--micro--related category-web " data-disqus-id="http://www.sitepoint.com/radar-week-i18n-react-productivity/">
+    <header class="article_category"><h2 class="article_category_title"><a href="http://www.sitepoint.com/web/">Web</a></h2></header>
+    
+    <section class="article_header">
+      <h1 class="article_title"><a href="http://www.sitepoint.com/radar-week-i18n-react-productivity/">On Our Radar This Week: i18n, React and Productivity</a></h1>
+      <div class="contributor article_contributor">
+        <p class="contributor_name article_author-name">by <a href="http://www.sitepoint.com/author/jhibbard/">James Hibbard</a></p>
+      </div>
+      
+      <div class="article_meta-data"><p class="article_pub-date"><time datetime="2014-10-31 10:00:08" pubdate="">Oct 31, 2014</time></p></div>
+      </section>
+  </article>
+</li>              <div class="widget maestro maestro-content-type-html " id="maestro-product-16"><li class="article-list_item  tile post-tile">
+  <article class="article article--micro article--micro--related category-web">
+    <header class="article_category"><h2 class="article_category_title"><a href="https://learnable.com/?utm_source=sitepoint&utm_medium=related-items&utm_content=js-javascript">Learnable</a></h2></header>
+    <section class="article_header">
+      <h1 class="article_title"><a href="https://learnable.com/books/jump-start-javascript?utm_source=sitepoint&utm_medium=related-items&utm_content=js-javascript">Book: Jump Start JavaScript</a></h1>
+      <div class="contributor article_contributor">
+        <p class="contributor_name article_author-name">by <a href="http://www.sitepoint.com/author/ara-pehlivanian/">Ara Pehlivanian</a> and <a href="https://learnable.com/users/donnyguyen?utm_source=sitepoint&utm_medium=related-items&utm_content=js-javascript">Don Nguyen</a></p>
+      </div>
+      <div class="article_meta-data"><p class="article_pub-date">PREMIUM</p></div>
+    </section>
+  </article>
+</li></div>              <li class="article-list_item  tile post-tile">
+  <article class="article article--micro article--micro--related category-javascript " data-disqus-id="http://www.sitepoint.com/component-based-web-apps-react/">
+    <header class="article_category"><h2 class="article_category_title"><a href="http://www.sitepoint.com/javascript/">JavaScript</a></h2></header>
+    
+    <section class="article_header">
+      <h1 class="article_title"><a href="http://www.sitepoint.com/component-based-web-apps-react/">Component-based Web Apps with React</a></h1>
+      <div class="contributor article_contributor">
+        <p class="contributor_name article_author-name">by <a href="http://www.sitepoint.com/author/dlau/">Dmitri Lau</a></p>
+      </div>
+      
+      <div class="article_meta-data"><p class="article_pub-date"><time datetime="2014-03-31 10:00:52" pubdate="">Mar 31, 2014</time></p></div>
+      </section>
+  </article>
+</li>          </ul>
+        </div>
+        
+        <div class="promo-panel">
+          <div class="widget maestro maestro-content-type-product " id="maestro-product-29"><div class="promo-panel_media-object"><img src="./Getting Started with React and JSX_files/1421991954rsz_jsninja1_medium_3d.png"></div>
+<div class="promo-panel_content">
+  <h1 class="promo-panel_title">
+    Free JavaScript: Novice to Ninja Sample
+  </h1>
+  <p>Get a free 32-page chapter of JavaScript: Novice to Ninja</p>
+  <form class="promo-panel_action"><input type="email" name="email" class="promo-panel_email" placeholder="email address"><input type="hidden" name="content" value="29"><button class="button radius">Claim Now<div class="spinner" role="progressbar" style="position: relative; width: 0px; z-index: 2000000000;"><div style="position: absolute; top: -1px; opacity: 0.25; -webkit-animation: opacity-72-25-0-13 1.42857142857143s linear infinite; -webkit-animation-play-state: initial;"><div style="position: absolute; width: 5px; height: 2px; box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 1px; transform-origin: left 50% 0px; transform: rotate(0deg) translate(7px, 0px); border-radius: 1px; background: rgb(0, 0, 0);"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; -webkit-animation: opacity-72-25-1-13 1.42857142857143s linear infinite; -webkit-animation-play-state: initial;"><div style="position: absolute; width: 5px; height: 2px; box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 1px; transform-origin: left 50% 0px; transform: rotate(27deg) translate(7px, 0px); border-radius: 1px; background: rgb(0, 0, 0);"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; -webkit-animation: opacity-72-25-2-13 1.42857142857143s linear infinite; -webkit-animation-play-state: initial;"><div style="position: absolute; width: 5px; height: 2px; box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 1px; transform-origin: left 50% 0px; transform: rotate(55deg) translate(7px, 0px); border-radius: 1px; background: rgb(0, 0, 0);"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; -webkit-animation: opacity-72-25-3-13 1.42857142857143s linear infinite; -webkit-animation-play-state: initial;"><div style="position: absolute; width: 5px; height: 2px; box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 1px; transform-origin: left 50% 0px; transform: rotate(83deg) translate(7px, 0px); border-radius: 1px; background: rgb(0, 0, 0);"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; -webkit-animation: opacity-72-25-4-13 1.42857142857143s linear infinite; -webkit-animation-play-state: initial;"><div style="position: absolute; width: 5px; height: 2px; box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 1px; transform-origin: left 50% 0px; transform: rotate(110deg) translate(7px, 0px); border-radius: 1px; background: rgb(0, 0, 0);"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; -webkit-animation: opacity-72-25-5-13 1.42857142857143s linear infinite; -webkit-animation-play-state: initial;"><div style="position: absolute; width: 5px; height: 2px; box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 1px; transform-origin: left 50% 0px; transform: rotate(138deg) translate(7px, 0px); border-radius: 1px; background: rgb(0, 0, 0);"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; -webkit-animation: opacity-72-25-6-13 1.42857142857143s linear infinite; -webkit-animation-play-state: initial;"><div style="position: absolute; width: 5px; height: 2px; box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 1px; transform-origin: left 50% 0px; transform: rotate(166deg) translate(7px, 0px); border-radius: 1px; background: rgb(0, 0, 0);"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; -webkit-animation: opacity-72-25-7-13 1.42857142857143s linear infinite; -webkit-animation-play-state: initial;"><div style="position: absolute; width: 5px; height: 2px; box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 1px; transform-origin: left 50% 0px; transform: rotate(193deg) translate(7px, 0px); border-radius: 1px; background: rgb(0, 0, 0);"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; -webkit-animation: opacity-72-25-8-13 1.42857142857143s linear infinite; -webkit-animation-play-state: initial;"><div style="position: absolute; width: 5px; height: 2px; box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 1px; transform-origin: left 50% 0px; transform: rotate(221deg) translate(7px, 0px); border-radius: 1px; background: rgb(0, 0, 0);"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; -webkit-animation: opacity-72-25-9-13 1.42857142857143s linear infinite; -webkit-animation-play-state: initial;"><div style="position: absolute; width: 5px; height: 2px; box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 1px; transform-origin: left 50% 0px; transform: rotate(249deg) translate(7px, 0px); border-radius: 1px; background: rgb(0, 0, 0);"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; -webkit-animation: opacity-72-25-10-13 1.42857142857143s linear infinite; -webkit-animation-play-state: initial;"><div style="position: absolute; width: 5px; height: 2px; box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 1px; transform-origin: left 50% 0px; transform: rotate(276deg) translate(7px, 0px); border-radius: 1px; background: rgb(0, 0, 0);"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; -webkit-animation: opacity-72-25-11-13 1.42857142857143s linear infinite; -webkit-animation-play-state: initial;"><div style="position: absolute; width: 5px; height: 2px; box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 1px; transform-origin: left 50% 0px; transform: rotate(304deg) translate(7px, 0px); border-radius: 1px; background: rgb(0, 0, 0);"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; -webkit-animation: opacity-72-25-12-13 1.42857142857143s linear infinite; -webkit-animation-play-state: initial;"><div style="position: absolute; width: 5px; height: 2px; box-shadow: rgba(0, 0, 0, 0.0980392) 0px 0px 1px; transform-origin: left 50% 0px; transform: rotate(332deg) translate(7px, 0px); border-radius: 1px; background: rgb(0, 0, 0);"></div></div></div></button></form>
+</div></div>        </div>
+
+                
+        <a id="comments"></a>
+        
+<div id="disqus_thread">
+                    <div id="dsq-content">
+
+
+            <ul id="dsq-comments">
+                    <li class="comment even thread-even depth-1" id="dsq-comment-120206">
+        <div id="dsq-comment-header-120206" class="dsq-comment-header">
+            <cite id="dsq-cite-120206">
+                <span id="dsq-author-user-120206">tomraithel</span>
+            </cite>
+        </div>
+        <div id="dsq-comment-body-120206" class="dsq-comment-body">
+            <div id="dsq-comment-message-120206" class="dsq-comment-message"><p>Thanks for this introduction. There is a small typo in the RandomMessage component:</p>
+<p>It should be this._onClick (with uppercase C), otherwise the click on the button would not trigger any change.</p>
+</div>
+        </div>
+
+    <ul class="children">
+    <li class="comment odd alt depth-2" id="dsq-comment-120244">
+        <div id="dsq-comment-header-120244" class="dsq-comment-header">
+            <cite id="dsq-cite-120244">
+                <span id="dsq-author-user-120244">adam__roberts</span>
+            </cite>
+        </div>
+        <div id="dsq-comment-body-120244" class="dsq-comment-body">
+            <div id="dsq-comment-message-120244" class="dsq-comment-message"><p>Fixed! Thanks!</p>
+</div>
+        </div>
+
+    </li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+            </ul>
+
+
+        </div>
+
+    </div>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+    var disqus_url = 'http://www.sitepoint.com/getting-started-react-jsx/';
+    var disqus_identifier = '95146 http://www.sitepoint.com/?p=95146';
+    var disqus_container_id = 'disqus_thread';
+    var disqus_domain = 'disqus.com';
+    var disqus_shortname = 'sitepointproduction';
+    var disqus_title = "Getting Started with React and JSX";
+        var disqus_config = function () {
+        var config = this; // Access to the config object
+        config.language = '';
+
+        /*
+           All currently supported events:
+            * preData — fires just before we request for initial data
+            * preInit - fires after we get initial data but before we load any dependencies
+            * onInit  - fires when all dependencies are resolved but before dtpl template is rendered
+            * afterRender - fires when template is rendered but before we show it
+            * onReady - everything is done
+         */
+
+        config.callbacks.preData.push(function() {
+            // clear out the container (its filled for SEO/legacy purposes)
+            document.getElementById(disqus_container_id).innerHTML = '';
+        });
+                config.callbacks.onReady.push(function() {
+            // sync comments in the background so we don't block the page
+            var script = document.createElement('script');
+            script.async = true;
+            script.src = '?cf_action=sync_comments&post_id=95146';
+
+            var firstScript = document.getElementsByTagName( "script" )[0];
+            firstScript.parentNode.insertBefore(script, firstScript);
+        });
+                    };
+/* ]]> */
+</script>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+    var DsqLocal = {
+        'trackbacks': [
+        ],
+        'trackback_url': "http:\/\/www.sitepoint.com\/getting-started-react-jsx\/trackback\/"    };
+/* ]]> */
+</script>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.' + 'disqus.com' + '/embed.js?pname=wordpress&pver=2.74';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+/* ]]> */
+</script>
+
+      </article>
+    </div>
+  
+  <aside class="page_aside article_aside">
+    <div class="adrow--top">
+      <div class="widget maestro maestro-content-type-ad hide-for-mobile-SP" id="maestro-product-1"><!-- SP2013_Articles_300x250_1 -->
+<div id="div-gpt-ad-1392428092543-0" style="width:300px; height:250px;" class="adspot">
+    <script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-gpt-ad-1392428092543-0"); });</script>
+ </div></div>    </div>
+    <div class="adrow--middle">
+      <div class="widget maestro maestro-content-type-ad hide-for-mobile-SP" id="maestro-product-172"><!-- Sitepoint_125x125 -->
+<div id="div-gpt-ad-1400800012700-0" style="width:125px; height:125px;" class="adspot">
+    <script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-gpt-ad-1400800012700-0"); });</script>
+ </div></div><div class="widget maestro maestro-content-type-ad hide-for-mobile-SP" id="maestro-product-166"><!-- Sitepoint_125x125_2 -->
+<div id="div-gpt-ad-1400782268851-0" style="width:125px; height:125px;" class="adspot">
+    <script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-gpt-ad-1400782268851-0"); });</script>
+ </div></div><div class="widget maestro maestro-content-type-ad hide-for-mobile-SP" id="maestro-product-167"><!-- Sitepoint_125x125_3 -->
+<div id="div-gpt-ad-1400782991292-0" style="width:125px; height:125px;" class="adspot">
+    <script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-gpt-ad-1400782991292-0"); });</script>
+ </div></div><div class="widget maestro maestro-content-type-ad hide-for-mobile-SP" id="maestro-product-168"><!-- Sitepoint_125x125_4 -->
+<div id="div-gpt-ad-1400783440189-0" style="width:125px; height:125px;" class="adspot">
+    <script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-gpt-ad-1400783440189-0"); });</script>
+ </div></div><div class="widget maestro maestro-content-type-ad hide-for-mobile-SP" id="maestro-product-169"><!-- Sitepoint_125x125_5 -->
+<div id="div-gpt-ad-1400783664460-0" style="width:125px; height:125px;" class="adspot">
+    <script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-gpt-ad-1400783664460-0"); });</script>
+ </div></div><div class="widget maestro maestro-content-type-ad hide-for-mobile-SP" id="maestro-product-170"><!-- Sitepoint_125x125_6 -->
+<div id="div-gpt-ad-1400783847643-0" style="width:125px; height:125px;" class="adspot">
+    <script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-gpt-ad-1400783847643-0"); });</script>
+ </div></div>    </div>
+    <div class="adrow--bottom">
+      <div class="widget maestro maestro-content-type-ad hide-for-mobile-SP" id="maestro-product-48"><!-- SP2013_Articles_300x250_4 -->
+<div id="div-gpt-ad-1392428092543-3" style="width:300px; height:250px;" class="adspot">
+    <script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-gpt-ad-1392428092543-3"); });</script>
+ </div></div><div class="widget maestro maestro-content-type-ad hide-for-mobile-SP" id="maestro-product-49"><!-- SP2013_Articles_300x600_1 -->
+<div id="div-gpt-ad-1392428092543-4" style="width:300px; height:600px;" class="adspot">
+    <script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-gpt-ad-1392428092543-4"); });</script>
+ </div></div>    </div>
+  </aside>
+
+</main>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="row">
+
+        <ul class="footer-links">
+          <li class="foot-link_item">
+            <h3>About</h3>
+          </li>
+          <li class="foot-link_item">
+            <a href="http://www.sitepoint.com/about-us/">About us</a>
+          </li>
+          <li class="foot-link_item">
+            <a href="http://www.sitepoint.com/advertising">Advertise</a>
+          </li>
+          <li class="foot-link_item">
+            <a href="http://www.sitepoint.com/press">Press Room</a>
+          </li>
+          <li class="foot-link_item">
+            <a href="http://www.sitepoint.com/legals">Legals</a>
+          </li>
+          <li class="foot-link_item">
+            <a href="mailto:feedback@sitepoint.com">Feedback</a>
+          </li>
+          <li class="foot-link_item">
+            <a href="http://www.sitepoint.com/write-for-us">Write for Us</a>
+          </li>
+        </ul>
+
+        <ul class="footer-links">
+          <li class="foot-link_item">
+            <h3>Our Sites</h3>
+          </li>
+          <li class="foot-link_item">
+            <a href="https://learnable.com/" target="_blank" data-pbcd-track="outbound">Learnable</a>
+          </li>
+          <li class="foot-link_item">
+            <a href="http://reference.sitepoint.com/" target="_blank">Reference</a>
+          </li>
+          <li class="foot-link_item">
+            <a href="http://www.sitepoint.com/web-foundations/">Web Foundations</a>
+          </li>
+        </ul>
+
+        <ul class="footer-links">
+          <li class="foot-link_item">
+            <h3>Connect</h3>
+          </li>
+          <li class="foot-link_item foot-link_item--icons">
+            <a href="http://www.sitepoint.com/feed"><i class="icon-rss icon-blocks icon-blocks--rss"></i></a>
+            <a href="http://www.sitepoint.com/newsletter"><i class="icon-envelope-alt icon-blocks icon-blocks--newsletter"></i></a>
+            <a href="https://www.facebook.com/sitepoint" target="_blank"><i class="icon-facebook icon-blocks icon-blocks--facebook"></i></a>
+            <a href="http://twitter.com/sitepointdotcom" target="_blank"><i class="icon-twitter icon-blocks icon-blocks--twitter"></i></a>
+            <a href="https://plus.google.com/+sitepoint" target="_blank"><i class="icon-google-plus icon-blocks icon-blocks--google-plus"></i></a>
+          </li>
+        </ul>
+
+        <p class="site-footer_copyright">
+          © 2000 – 2015 SitePoint Pty. Ltd.
+        </p>
+
+      </div>
+    </footer>
+
+    <div id="search-dropdown" style="top: 364px; left: 0px; right: auto;">
+      <div data-role="search-for">
+        <a class="search-link" href="http://www.sitepoint.com/getting-started-react-jsx/#">Search for...</a>
+      </div>
+      <ul data-role="results"></ul>
+    </div>
+
+    				<script type="text/javascript"><!--
+			var seriesdropdown = document.getElementById("orgseries_dropdown");
+			if (seriesdropdown) { 
+			 function onSeriesChange() {
+					if ( seriesdropdown.options[seriesdropdown.selectedIndex].value != ( 0 || -1 ) ) {
+						location.href = "http://www.sitepoint.com/series/"+seriesdropdown.options[seriesdropdown.selectedIndex].value;
+					}
+				}
+				seriesdropdown.onchange = onSeriesChange;
+			}
+			--></script>
+			
+<div id="triggered-cta-box-wrapper" class="triggered-cta-box-wrapper triggered-cta-box-wrapper--bottom" style="bottom: -372px; display: block;"><a href="http://www.sitepoint.com/getting-started-react-jsx/#close" id="triggered-cta-box-close">x</a><div><div class="triggered-cta-box campaign-free-ebook">  <div class="campaign-free-ebook__row1" style="max-width:40em">    <div class="campaign-free-ebook__row1__column1" style="margin-left:1em;width:60%">      <p class="logo-wrapper"><img src="./Getting Started with React and JSX_files/1392770725sp-logo-42x50.png" alt="SitePoint logo"></p>      <h1>Free JavaScript: Novice to Ninja Sample</h1>      <p>Get a free 32 page sample to our latest book, JavaScript: Novice to Ninja</p>    </div>    <div class="campaign-free-ebook__row1__column2" style="width:35%">      <img class="books-image" src="./Getting Started with React and JSX_files/jsninja1_medium_3d.png" style="height:200px" alt="JavaScript: Novice to Ninja cover">    </div>  </div>  <div class="campaign-free-ebook__row2">    <form method="post">      <input type="hidden" name="content" value="36">      <div class="campaign-free-ebook__row2__div1">        <div class="campaign-free-ebook__row2__div1__column1">          <input type="email" name="email" id="email" placeholder="Email address">        </div>        <div class="campaign-free-ebook__row2__div1__column2">          <button type="submit">Claim eBook</button>        </div>      </div>      <div class="campaign-free-ebook__row2__div2">        <div class="campaign-free-ebook__row2__div2__column1">          <p id="triggered-cta-box-message"></p>        </div>      </div>    <input type="hidden" name="variant" value="a"></form>  </div></div></div></div>
+<script type="text/javascript">
+  (function () {
+    var variant = (Math.random() < 1 ? "a" : "b");
+    var boxContents = {
+      a: '<div class="triggered-cta-box campaign-free-ebook">  <div class="campaign-free-ebook__row1" style="max-width:40em">    <div class="campaign-free-ebook__row1__column1" style="margin-left:1em;width:60%">      <p class="logo-wrapper"><img src="http://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/02/1392770725sp-logo-42x50.png" alt="SitePoint logo" /></p>      <h1>Free JavaScript: Novice to Ninja Sample</h1>      <p>Get a free 32 page sample to our latest book, JavaScript: Novice to Ninja</p>    </div>    <div class="campaign-free-ebook__row1__column2"style="width:35%">      <img class="books-image" src="https://d2sis3lil8ndrq.cloudfront.net/books/jsninja1_medium_3d.png" style="height:200px" alt="JavaScript: Novice to Ninja cover" />    </div>  </div>  <div class="campaign-free-ebook__row2">    <form method="post">      <input type="hidden" name="content" value="36">      <div class="campaign-free-ebook__row2__div1">        <div class="campaign-free-ebook__row2__div1__column1">          <input type="email" name="email" id="email" placeholder="Email address">        </div>        <div class="campaign-free-ebook__row2__div1__column2">          <button type="submit">Claim eBook</button>        </div>      </div>      <div class="campaign-free-ebook__row2__div2">        <div class="campaign-free-ebook__row2__div2__column1">          <p id="triggered-cta-box-message"></p>        </div>      </div>    </form>  </div></div>',
+      b: '<div class="triggered-cta-box campaign-free-ebook">  <div class="campaign-free-ebook__row1" style="max-width:40em">    <div class="campaign-free-ebook__row1__column1" style="margin-left:1em;width:60%">      <p class="logo-wrapper"><img src="http://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/02/1392770725sp-logo-42x50.png" alt="SitePoint logo" /></p>      <h1>Your first month of Learnable for just $1!</h1>      <p>This month only, we\'re dropping the price of your first month of Learnable to $1. That gives you access to all SitePoint books and web development courses!</p>    </div>    <div class="campaign-free-ebook__row1__column2"style="width:35%">      <img class="books-image" src="http://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/12/14189681031dollarslider_360.png" alt="Learnable for $1" />    </div>  </div>  <div class="campaign-free-ebook__row2">    <form>     <div align="center" class="campaign-free-trial-v2__row2">    <a class="submit-btn btn-buy button" href="http://www.sitepoint.com/christmas-sale-13/?utm_source=SitePoint&utm_medium=Slider&utm_campaign=1dollarslider" style="margin-bottom: 0px;">Start Learning Now</a>    </div>      <div class="campaign-free-ebook__row2__div2">        <div class="campaign-free-ebook__row2__div2__column1">          <p id="triggered-cta-box-message"></p>        </div>      </div>    </form>  </div></div>'
+    };
+    var campaigns = {
+      a: "sitepoint-js-free-sample-slideup",
+      b: "learnable-dollar-slideup"
+    };
+    var triggeredCtaBoxWrapperEl = document.getElementById("triggered-cta-box-wrapper");
+    var boxContentsEl = document.createElement("div");
+
+    boxContentsEl.innerHTML = boxContents[variant];
+    triggeredCtaBoxWrapperEl.appendChild(boxContentsEl);
+
+    window.triggeredCtaBox = {
+      variant: variant,
+      boxSelector: "#triggered-cta-box-wrapper",
+      bgSelector: ".triggered-cta-box-wrapper-bg",
+      closeSelector: "#triggered-cta-box-close",
+      closeLinkSelector: ".triggered-cta-box-close-link",
+      campaign: campaigns[variant],
+      boxType: "bottom",
+      mobileEnabled: false,
+      cookieLife: 14,
+      triggerType: "scroll",
+      triggerRequiredPages: 0,
+      triggerValue: 25,
+      slideSpeed: 1000,
+      ajaxUrl: "https://www.sitepoint.com/wp-admin/admin-ajax.php"
+    };
+  })();
+</script>
+<!--Plugin WP Missed Schedule 2013.1231.2013 Active - Tag 6707293c0218e2d8b7aa38d418ffa608-->
+
+<!-- This site is patched which an important unfixed problem since WordPress 2.5+ to 3.9+ -->
+
+
+
+<!-- START Parse.ly Include: Standard -->
+<div id="parsely-root" style="display: none">
+  <div id="parsely-cfg" data-parsely-site="sitepoint.com"></div>
+<script id="parsely-script" async="" src="http://static.parsely.com/p.js"></script></div>
+<script>
+(function(s, p, d) {
+  var h=d.location.protocol, i=p+"-"+s,
+      e=d.getElementById(i), r=d.getElementById(p+"-root"),
+      u=h==="https:"?"d1z2jf7jlzjs58.cloudfront.net"
+      :"static."+p+".com";
+  if (e) return;
+  e = d.createElement(s); e.id = i; e.async = true;
+  e.src = h+"//"+u+"/p.js"; r.appendChild(e);
+})("script", "parsely", document);
+</script>
+<!-- END Parse.ly Include: Standard -->
+
+<script type="text/javascript" src="./Getting Started with React and JSX_files/shCore.js"></script>
+<script type="text/javascript" src="./Getting Started with React and JSX_files/shBrushXml.js"></script>
+<script type="text/javascript" src="./Getting Started with React and JSX_files/shBrushPlain.js"></script>
+<script type="text/javascript" src="./Getting Started with React and JSX_files/shBrushJScript.js"></script>
+<script type="text/javascript">
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://www.sitepoint.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.83c";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://www.sitepoint.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.83c";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.defaults['wrap-lines'] = false;
+	SyntaxHighlighter.all();
+</script>
+<script type="text/javascript" src="./Getting Started with React and JSX_files/scripts-foot-cdb2a3c4e49fb48dd278cef48b26da49.js"></script>
+<script>
+                    $(document).ready(function() {
+                      $(".article_header__buttons .sp-twitter-share-button").on("click", function (evt) {
+                        evt.preventDefault();
+
+                        var url = "https://twitter.com/intent/tweet?" + $.param({
+                          url: "http://www.sitepoint.com/getting-started-react-jsx/",
+                          text: "Getting Started with React and JSX",
+                          via: "sitepointdotcom"
+                        });
+
+                        var popupWidth = 550,
+                            popupHeight = 420,
+                            screenWidth = screen.width,
+                            screenHeight = screen.height,
+                            popupLeftOffset = Math.round(screenWidth / 2 - popupWidth / 2),
+                            popupTopOffset = 0;
+                        if (screenHeight > popupHeight) {
+                          popupTopOffset = Math.round(screenHeight / 2 - popupHeight / 2);
+                        }
+                        window.open(url, null, "scrollbars=yes,resizable=yes,toolbar=no,location=yes" + ", width=" + popupWidth + ", height=" + popupHeight + ", left=" + popupLeftOffset + ",top=" + popupTopOffset);
+                      });
+                    });
+                  </script><script>
+                    $(document).ready(function() {
+                      $(".article_header__buttons .subscribe-button").on("click", function (evt) {
+                        evt.preventDefault();
+
+                        var url = evt.target.href;
+
+                        var popupWidth = 550,
+                            popupHeight = 720,
+                            screenWidth = screen.width,
+                            screenHeight = screen.height,
+                            popupLeftOffset = Math.round(screenWidth / 2 - popupWidth / 2),
+                            popupTopOffset = 0;
+                        if (screenHeight > popupHeight) {
+                          popupTopOffset = Math.round(screenHeight / 2 - popupHeight / 2);
+                        }
+                        window.open(url, null, "scrollbars=yes,resizable=yes,toolbar=no,location=yes" + ", width=" + popupWidth + ", height=" + popupHeight + ", left=" + popupLeftOffset + ",top=" + popupTopOffset);
+                      });
+                    });
+                  </script><script>(function($){$(document).ready(function(){ if(typeof DISQUSWIDGETS != "undefined"){DISQUSWIDGETS.loadCount($, "sitepointproduction")} });})(jQuery);</script>
+  
+
+
+<!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
+
+Page Caching using memcached
+Object Caching 870/923 objects using memcached
+Content Delivery Network via Amazon Web Services: CloudFront: dab1nmslvvntp.cloudfront.net
+
+ Served from: www.sitepoint.com @ 2015-02-18 11:55:01 by W3 Total Cache --></body></html>
